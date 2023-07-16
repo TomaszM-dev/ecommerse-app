@@ -18,6 +18,7 @@
 
 html,
 body {
+  background-color: black;
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
@@ -29,14 +30,14 @@ a {
 
 .container {
   max-width: 1366px;
-  min-height: 100vh;
+
   margin: auto;
   padding: 0 6rem;
   display: flex;
   position: relative;
   flex-direction: column;
   justify-content: space-between;
-  background-color: black;
+
   color: white;
 
   @media (max-width: 650px) {
