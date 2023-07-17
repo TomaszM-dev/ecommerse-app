@@ -35,7 +35,7 @@ const Nav = ({ user }: Session) => {
         )}
         {user && (
           <div className="flex items-center gap-10">
-            <li>
+            <li className="">
               <Image
                 className="rounded-full"
                 src={user?.image}
