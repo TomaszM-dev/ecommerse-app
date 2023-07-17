@@ -7,7 +7,11 @@ import { useCartStore } from "@/store";
 const Cart = () => {
   const cartStore = useCartStore();
   console.log(cartStore.isOpen);
-  return <div></div>;
+  return (
+    <div>
+      <h1>cart</h1>
+    </div>
+  );
 };
 
 export default Cart;
