@@ -11,11 +11,11 @@ import { AnimatePresence, motion } from "framer-motion";
 
 const Nav = ({ user }: Session) => {
   const cartStore = useCartStore();
-  console.log(user);
+
   return (
     <nav className="flex justify-between items-center py-8">
       <Link href="/">
-        <h1 className="text-[2rem] text-main">Styled</h1>
+        <h1 className="text-[2rem] text-main  ">Styled</h1>
       </Link>
       <ul className="flex items-center gap-12">
         {/* Toggle a cart */}

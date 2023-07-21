@@ -1,7 +1,7 @@
 import "./globals.css";
 import Nav from "./components/Nav";
 import { getServerSession } from "next-auth/next";
-import { options } from "@/pages/api/auth/[...nextauth]";
+import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import Hydrate from "./components/Hydrate";
 import { Roboto, Lobster_Two } from "next/font/google";
 
@@ -18,8 +18,8 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   //Fetch the user
-  const session = await getServerSession(options);
-  console.log(session);
+  const session = await getServerSession(authOptions);
+
   return (
     <html lang="en">
       <body className={`${roboto.className}`}>
