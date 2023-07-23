@@ -43,7 +43,7 @@ model User {
   accounts         Account[]
   sessions         Session[]
   stripeCustomerId String?
-  Order            Order[]
+  orders           Order[]
 }
 
 model Product {
@@ -64,7 +64,7 @@ model Order {
   currency        String
   status          String
   createdDate     DateTime  @default(now())
-  paymentIntentId String?   @unique
+  paymentIntentID String?   @unique
   products        Product[]
 }
 

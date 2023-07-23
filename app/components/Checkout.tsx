@@ -35,8 +35,8 @@ const Checkout = () => {
       })
       .then((data) => {
         console.log(data);
-        // setClientSecret(data.paymentIntent.client_secret);
-        // cartStore.setPaymentIntent(data.paymentIntent.id);
+        setClientSecret(data.paymentIntent.client_secret);
+        cartStore.setPaymentIntent(data.paymentIntent.id);
       });
   }, []);
   return (
