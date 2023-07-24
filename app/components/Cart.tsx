@@ -7,6 +7,7 @@ import { IoAddCircle, IoRemoveCircle } from "react-icons/io5";
 import basket from "public/basket.png";
 import { AnimatePresence, motion } from "framer-motion";
 import Checkout from "./Checkout";
+import OrderConfirmed from "./OrderConfirmed";
 
 const Cart = () => {
   const cartStore = useCartStore();
@@ -31,7 +32,16 @@ const Cart = () => {
         onClick={(e) => e.stopPropagation()}
         className="bg-black absolute right-0 top-0 w-[35%] h-screen p-12 overflow-y-scroll "
       >
-        <h1>Here is your shopping list 🧾</h1>
+        {cartStore.onCheckout === "cart" && (
+          <button onClick={() => cartStore.toggleCart()}>
+            Back to store 🏃‍♂️
+          </button>
+        )}
+        {cartStore.onCheckout === "checkout" && (
+          <button onClick={() => cartStore.setCheckout("cart")}>
+            Back to cart 🏃‍♂️
+          </button>
+        )}
         <div className="flex flex-col gap-10 mt-10">
           {/*  cart items */}
           {cartStore.onCheckout === "cart" && (
@@ -90,7 +100,9 @@ const Cart = () => {
           )}
 
           {cartStore.onCheckout === "checkout" && <Checkout />}
-          {cartStore.cart.length > 0 && (
+          {cartStore.onCheckout === "success" && <OrderConfirmed />}
+
+          {cartStore.cart.length > 0 && cartStore.onCheckout === "cart" ? (
             <motion.div layout>
               <p>Total Price: {formatPrice(totalPrice)}</p>
               <button
@@ -100,10 +112,12 @@ const Cart = () => {
                 Checkout
               </button>
             </motion.div>
+          ) : (
+            ""
           )}
 
           <AnimatePresence>
-            {!cartStore.cart.length && (
+            {!cartStore.cart.length && cartStore.onCheckout === "cart" && (
               <motion.div
                 animate={{ opacity: 0.75, rotateZ: 0, scale: 1 }}
                 initial={{ opacity: 0, scaleZ: -10, scale: 0.5 }}
