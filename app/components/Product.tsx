@@ -22,6 +22,7 @@ const Product = ({
     >
       <div className="flex items-center flex-col gap-5 mt-20">
         <Image
+          priority={true}
           className="rounded-lg"
           src={image}
           alt="es"

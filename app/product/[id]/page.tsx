@@ -10,6 +10,7 @@ const Product = async ({ searchParams }: SearchParamTypes) => {
     <div className="flex items-center gap-20 mt-10 ">
       <div className="flex-1">
         <Image
+          priority={true}
           alt="product image"
           src={searchParams.image}
           width={600}
